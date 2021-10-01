@@ -4,12 +4,14 @@ function App() {
   return (
     <div className="wrapper">
       <header className="header">
-        <div className="header__container">
+        <div className="header__container container">
           <a href="#" className="header__logo">
             <img src={logo} alt="logo" width="40px" height="40px" />
             <p className="header__text">
-              <div className="header__text-top">REACT SNEAKERS</div>
-              <div className="header__text-down">Магазин лучших кроссовок</div>
+              <span className="header__text-top">REACT SNEAKERS</span>
+              <span className="header__text-down">
+                Магазин лучших кроссовок
+              </span>
             </p>
           </a>
 
@@ -76,8 +78,26 @@ function App() {
       </header>
       <main>
         <section className="smith">
-          <h2 className="smith__title">Stan Smith, Forever!</h2>
-          <button className="smith__btn">Купить</button>
+          <div className="smith__slider">
+            <h2 className="smith__title">
+              Stan Smith
+              <span>
+                , <br />
+                Forever!
+              </span>
+            </h2>
+            <button className="smith__btn">КУПИТЬ</button>
+          </div>
+        </section>
+        <section className="all">
+          <div className="container">
+            <div className="all__top">
+              <div className="all__title">Все кроссовки</div>
+              <div className="all__search">
+                <input type="text" />
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>

@@ -1,6 +1,36 @@
 .smith {
-  background: url(../../assets/smith.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  padding: 45px 0;
+  &__slider {
+    margin: 0 auto;
+    width: 960px;
+    height: 300px;
+    padding: 88px 0 0 60px;
+    border-radius: 20px;
+    background-image: url(../../assets/smith.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  &__title {
+    margin-bottom: 28px;
+    font-family: $font-family;
+    font-size: 38px;
+    font-weight: 700;
+    color: #8bb43c;
+    & span {
+      color: #000;
+    }
+  }
+  &__btn {
+    padding: 15px 50px;
+    background-color: #a5d364;
+    border: none;
+    border-radius: 110px;
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
 }
-//разобраться с импортами изображений

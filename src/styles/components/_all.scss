@@ -1,0 +1,12 @@
+.all {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    font-family: $font-family;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+  }
+}
