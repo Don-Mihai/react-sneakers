@@ -1,0 +1,54 @@
+.header {
+  border-bottom: 1px solid #eaeaea;
+  &__container {
+    max-width: 990px;
+    height: 128px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    & img {
+      margin-right: 16px;
+    }
+  }
+
+  &__text-top {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+  }
+  &__text-down {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 14px;
+    color: #9d9d9d;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    & svg {
+      margin-right: 30px;
+    }
+    &-price {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+      & svg {
+        margin-right: 10px;
+      }
+      & span {
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 14px;
+        color: #5c5c5c;
+      }
+    }
+  }
+}
