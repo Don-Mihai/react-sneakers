@@ -3,9 +3,11 @@
 @import './components/header';
 @import './components/smith';
 @import './components/all';
+@import './components/cart';
 
 body {
   background: $color-bg;
+  font-family: $font-family;
 }
 .wrapper {
   max-width: 1080px;
