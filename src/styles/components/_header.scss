@@ -43,6 +43,9 @@
       display: flex;
       align-items: center;
       margin-right: 30px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
       & svg {
         margin-right: 10px;
       }
