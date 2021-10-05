@@ -74,6 +74,7 @@
 }
 
 .liked {
+  display: none;
   position: absolute;
   left: 28px;
 }
@@ -81,4 +82,7 @@
   display: none;
   position: absolute;
   left: 28px;
+}
+.active {
+  display: block;
 }

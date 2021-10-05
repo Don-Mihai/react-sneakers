@@ -1,11 +1,17 @@
 import React from 'react';
 
 export default function Product() {
+  const setDisplay = () => {
+    setLikeTogle(!likeTogle);
+  };
+  const [likeTogle, setLikeTogle] = React.useState(false);
+
   return (
     <div className="product">
       <div className="product__icons">
         <svg
-          className="liked"
+          className={`liked ${likeTogle && 'active'}`}
+          onClick={setDisplay}
           width="30"
           height="30"
           viewBox="0 0 30 30"
@@ -18,7 +24,8 @@ export default function Product() {
           />
         </svg>
         <svg
-          className="unliked"
+          className={`unliked ${!likeTogle && 'active'}`}
+          onClick={setDisplay}
           width="30"
           height="30"
           viewBox="0 0 30 30"
