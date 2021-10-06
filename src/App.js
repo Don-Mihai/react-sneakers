@@ -2,6 +2,25 @@ import React from 'react';
 
 import Cart from './components/Cart';
 import Product from './components/Product';
+
+const items = [
+  {
+    img: '/img/img1.jpg',
+    title: 'Мужские Кроссовки Nike Blazer Mid Suede',
+    price: '12 999 руб.',
+  },
+  {
+    img: '/img/img2.jpg',
+    title: 'Мужские Кроссовки Nike Air Max 270',
+    price: '12 999 руб.',
+  },
+  {
+    img: '/img/img3.jpg',
+    title: 'Мужские Кроссовки Nike Blazer Mid Suede',
+    price: '8 499 руб.',
+  },
+];
+
 function App() {
   const [togle, setTogle] = React.useState(false);
 
@@ -121,11 +140,12 @@ function App() {
               </div>
             </div>
             <div className="all__products">
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
+              {items.map((obj) => (
+                <Product
+                  title={obj.title}
+                  price={obj.price}
+                  img={obj.img}></Product>
+              ))}
             </div>
           </div>
         </section>

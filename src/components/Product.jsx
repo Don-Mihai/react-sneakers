@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Product() {
+export default function Product({ title, price, img }) {
   const setDisplay = () => {
     setLikeTogle(!likeTogle);
   };
@@ -48,17 +48,17 @@ export default function Product() {
       </div>
 
       <img
-        src="/img/img1.jpg"
+        src={img}
         alt="product"
         className="product__img"
         width="133"
         height="112"
       />
-      <p className="product__text">Мужские Кроссовки Nike Blazer Mid Suede</p>
+      <p className="product__text">{title}</p>
       <div className="product__bottom">
         <div className="product__price-wrap">
           <div className="product__price-title">ЦЕНА:</div>
-          <div className="product__price">12 999 руб.</div>
+          <div className="product__price">{price}</div>
         </div>
         <button className="product__btn">+</button>
       </div>

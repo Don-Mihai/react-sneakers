@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Cart({ showCart }) {
+export default function Cart() {
   //передал тогле в картЮ теперь нужно поставить условие отображения тогле
   //убрать overlay из cart потому что не могу создать логику скрытия, и сделать его через absolute
   return (
