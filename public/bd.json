@@ -1,18 +1,18 @@
-{
-	"1": {
+[
+	{
 		"img" : "/img/img1.jpg",
 		"title": "Мужские Кроссовки Nike Blazer Mid Suede",
 		"price": "12 999 руб."
 	},
-	"2": {
+	{
 		"img" : "/img/img2.jpg",
 		"title": "Мужские Кроссовки Nike Air Max 270",
 		"price": "12 999 руб."
 	},
-	"3": {
+	{
 		"img" : "/img/img3.jpg",
 		"title": "Мужские Кроссовки Nike Blazer Mid Suede",
 		"price": "8 499 руб."
 	}
 
-}
+]

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Product({ title, price, img }) {
+export default function Product({ title, price, img, onPlus }) {
   const [likeTogle, setLikeTogle] = React.useState(false);
   const [selectTogle, setSelectTogle] = React.useState(false);
 
@@ -9,6 +9,7 @@ export default function Product({ title, price, img }) {
   };
   const setSelect = () => {
     setSelectTogle(!selectTogle);
+    onPlus();
   };
 
   return (
