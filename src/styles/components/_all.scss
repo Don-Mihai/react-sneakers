@@ -71,6 +71,14 @@
   &__price {
     font-weight: 700;
   }
+  &__btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    &-ico {
+      display: none;
+    }
+  }
 }
 
 .liked {

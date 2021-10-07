@@ -32,5 +32,12 @@
     font-size: 16px;
     color: #fff;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    &:hover {
+      background-color: lighten(#a5d364, 5%);
+    }
+    &:active {
+      background-color: darken(#a5d364, 5%);
+    }
   }
 }

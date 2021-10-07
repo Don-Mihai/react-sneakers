@@ -31,6 +31,10 @@
     padding: 20px;
     border: 1px solid #f3f3f3;
     border-radius: 20px;
+    &-btn {
+      border: none;
+      background-color: transparent;
+    }
     & img {
       margin-right: 20px;
     }
@@ -42,7 +46,19 @@
       font-weight: 700;
     }
   }
+  &__dotted {
+    height: 1px;
+    position: relative;
+    bottom: 2px;
+    border-bottom: 1px dotted #dfdfdf;
+    flex-grow: 1;
+  }
   &__bottom {
+    &-cost {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-end;
+    }
     &-btn {
       display: flex;
       align-items: center;

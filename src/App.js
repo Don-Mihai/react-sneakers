@@ -3,6 +3,8 @@ import React from 'react';
 import Cart from './components/Cart';
 import Product from './components/Product';
 
+// create folders for component, add index.jsx and module.scss
+
 const items = [
   {
     img: '/img/img1.jpg',

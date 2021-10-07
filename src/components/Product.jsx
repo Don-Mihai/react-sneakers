@@ -1,17 +1,21 @@
 import React from 'react';
 
 export default function Product({ title, price, img }) {
+  const [likeTogle, setLikeTogle] = React.useState(false);
+  const [selectTogle, setSelectTogle] = React.useState(false);
+
   const setDisplay = () => {
     setLikeTogle(!likeTogle);
   };
-  const [likeTogle, setLikeTogle] = React.useState(false);
+  const setSelect = () => {
+    setSelectTogle(!selectTogle);
+  };
 
   return (
     <div className="product">
-      <div className="product__icons">
+      <div className="product__icons" onClick={setDisplay}>
         <svg
           className={`liked ${likeTogle && 'active'}`}
-          onClick={setDisplay}
           width="30"
           height="30"
           viewBox="0 0 30 30"
@@ -25,7 +29,6 @@ export default function Product({ title, price, img }) {
         </svg>
         <svg
           className={`unliked ${!likeTogle && 'active'}`}
-          onClick={setDisplay}
           width="30"
           height="30"
           viewBox="0 0 30 30"
@@ -60,7 +63,34 @@ export default function Product({ title, price, img }) {
           <div className="product__price-title">ЦЕНА:</div>
           <div className="product__price">{price}</div>
         </div>
-        <button className="product__btn">+</button>
+        <button className="product__btn" onClick={setSelect}>
+          <svg
+            className={`product__btn-ico ${!selectTogle && 'active'}`}
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect
+              x="0.5"
+              y="0.5"
+              width="31"
+              height="31"
+              rx="7.5"
+              fill="white"
+              stroke="#F2F2F2"
+            />
+            <path
+              d="M20.6653 15.1312H17.2021V11.6682C17.2021 10.3328 15.1311 10.3328 15.1311 11.6682V15.1312H11.668C10.3329 15.1312 10.3329 17.2022 11.668 17.2022H15.1311V20.6652C15.1311 22.0005 17.2021 22.0005 17.2021 20.6652V17.2022H20.6653C22.0005 17.2022 22.0005 15.1312 20.6653 15.1312Z"
+              fill="#D3D3D3"
+            />
+          </svg>
+          <img
+            src="/img/selected.png"
+            alt=""
+            className={`product__btn-ico ${selectTogle && 'active'}`}
+          />
+        </button>
       </div>
     </div>
   );
