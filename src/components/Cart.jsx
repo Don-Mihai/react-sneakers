@@ -1,6 +1,9 @@
 import React from 'react';
 
-export default function Cart({ items = [] }) {
+export default function Cart({ items = [], onRemove }) {
+  //   const removeItem = (obj) => {
+  //     onRemove(obj);
+  //   };
   return (
     <section className="cart">
       <div className="cart__container">

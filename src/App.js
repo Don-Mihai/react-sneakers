@@ -4,6 +4,9 @@ import Cart from './components/Cart';
 import Product from './components/Product';
 import Header from './components/Header';
 
+//сделал cart, передаю в нем пропсы но он не выводит в нем данные, тчобы разобрать в проблемме просмотреть видос.
+// по сути всё должно работать но видимо не учел какие то моменты
+
 function App() {
   const [togle, setTogle] = React.useState(false);
   const [items, setItems] = React.useState([]);
@@ -18,6 +21,10 @@ function App() {
 
   const onAddItems = (obj) => {
     setCartItems((prev) => [...prev, obj]);
+  };
+  const onRemoveItems = (obj) => {
+    const newItems = cartItems.filter((item) => item !== obj);
+    setCartItems(newItems);
   };
   console.log(cartItems);
 
@@ -68,6 +75,7 @@ function App() {
                 <Product
                   key={index}
                   onPlus={() => onAddItems(obj)}
+                  onRemove={() => onRemoveItems(obj)}
                   title={obj.title}
                   price={obj.price}
                   img={obj.img}></Product>
@@ -75,7 +83,12 @@ function App() {
             </div>
           </div>
         </section>
-        {togle && <Cart showCart={showCart} items={cartItems}></Cart>}
+        {togle && (
+          <Cart
+            showCart={showCart}
+            items={cartItems} // тут передаю данные
+            onRemove={(obj) => onRemoveItems(obj)}></Cart>
+        )}
       </main>
     </div>
   );

@@ -13,6 +13,11 @@
 		"img" : "/img/img3.jpg",
 		"title": "Мужские Кроссовки Nike Blazer Mid Suede",
 		"price": "8 499 руб."
+	},
+	{
+		"img" : "/img/img4.jpg",
+		"title": "Мужские Кроссовки Under Armour Curry 8",
+		"price": "15 199 руб."
 	}
 
 ]
