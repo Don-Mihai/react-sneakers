@@ -11,6 +11,7 @@ function App() {
   const [togle, setTogle] = React.useState(false);
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
+  const [inputValue, setInputValue] = React.useState('');
   React.useEffect(() => {
     fetch('https://615f2094af3659001720487b.mockapi.io/items')
       .then((res) => {
@@ -26,10 +27,13 @@ function App() {
     const newItems = cartItems.filter((item) => item !== obj);
     setCartItems(newItems);
   };
-  console.log(cartItems);
 
   const showCart = () => {
     setTogle(!togle);
+  };
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
   };
 
   return (
@@ -67,7 +71,12 @@ function App() {
                     strokeLinecap="round"
                   />
                 </svg>
-                <input type="text" placeholder="Поиск..." />
+                <input
+                  type="text"
+                  onChange={handleChange}
+                  value={inputValue}
+                  placeholder="Поиск..."
+                />
               </div>
             </div>
             <div className="all__products">
@@ -87,7 +96,7 @@ function App() {
           <Cart
             showCart={showCart}
             items={cartItems} // тут передаю данные
-            onRemove={(obj) => onRemoveItems(obj)}></Cart>
+            onRemove={() => onRemoveItems()}></Cart>
         )}
       </main>
     </div>

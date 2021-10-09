@@ -3,6 +3,7 @@ import React from 'react';
 export default function Cart({ items = [], onRemove }) {
   //   const removeItem = (obj) => {
   //     onRemove(obj);
+  //     console.log(obj);
   //   };
   return (
     <section className="cart">
