@@ -80,15 +80,19 @@ function App() {
               </div>
             </div>
             <div className="all__products">
-              {items.map((obj, index) => (
-                <Product
-                  key={index}
-                  onPlus={() => onAddItems(obj)}
-                  onRemove={() => onRemoveItems(obj)}
-                  title={obj.title}
-                  price={obj.price}
-                  img={obj.img}></Product>
-              ))}
+              {items
+                .filter((object) =>
+                  object.title.toLowerCase().includes(inputValue.toLowerCase()),
+                )
+                .map((obj, index) => (
+                  <Product
+                    key={index}
+                    onPlus={() => onAddItems(obj)}
+                    onRemove={() => onRemoveItems(obj)}
+                    title={obj.title}
+                    price={obj.price}
+                    img={obj.img}></Product>
+                ))}
             </div>
           </div>
         </section>
