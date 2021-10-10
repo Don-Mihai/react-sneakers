@@ -32,3 +32,33 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
+
+.big-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 18px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #9dd558;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: lighten(#9dd558, 5%);
+    & svg {
+      transform: translateX(5px);
+    }
+  }
+  &:active {
+    background-color: darken(#9dd558, 5%);
+  }
+  & svg {
+    position: absolute;
+    right: 25px;
+    transition: transform 0.15s ease-in-out;
+  }
+}

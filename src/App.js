@@ -7,6 +7,8 @@ import axios from 'axios';
 
 //сделать отображение для пустой корзинки, не забыть что функция может возвращать только один див
 
+//сделать роутинг по разным страницам
+
 function App() {
   const [togle, setTogle] = React.useState(false);
   const [items, setItems] = React.useState([]);
