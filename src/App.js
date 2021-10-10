@@ -3,9 +3,9 @@ import React from 'react';
 import Cart from './components/Cart';
 import Product from './components/Product';
 import Header from './components/Header';
+import axios from 'axios';
 
-//сделал cart, передаю в нем пропсы но он не выводит в нем данные, тчобы разобрать в проблемме просмотреть видос.
-// по сути всё должно работать но видимо не учел какие то моменты
+//сделать отображение для пустой корзинки, не забыть что функция может возвращать только один див
 
 function App() {
   const [togle, setTogle] = React.useState(false);
@@ -13,11 +13,9 @@ function App() {
   const [cartItems, setCartItems] = React.useState([]);
   const [inputValue, setInputValue] = React.useState('');
   React.useEffect(() => {
-    fetch('https://615f2094af3659001720487b.mockapi.io/items')
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => setItems(json));
+    axios
+      .get('https://615f2094af3659001720487b.mockapi.io/items')
+      .then((res) => setItems(res.data));
   }, []);
 
   const onAddItems = (obj) => {
