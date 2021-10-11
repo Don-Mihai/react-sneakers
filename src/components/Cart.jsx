@@ -78,7 +78,7 @@ export default function Cart({ items = [] }) {
             </div>
           </div>
         ) : (
-          <div class="cart__empty">
+          <div className="cart__empty">
             <img src="/img/empty.jpg" alt="empty" width="120" height="120" />
             <h3>Корзина пустая</h3>
             <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
