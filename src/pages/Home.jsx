@@ -20,7 +20,7 @@ export default function Home({
     setCartItems((prev) => [...prev, obj]);
   };
   const onRemoveItems = (obj) => {
-    const newItems = cartItems.filter((item) => item !== obj);
+    const newItems = cartItems.filter((item) => item.id !== obj.id);
     setCartItems(newItems);
   };
 
@@ -91,7 +91,7 @@ export default function Home({
           <Cart
             showCart={showCart}
             items={cartItems}
-            onRemove={() => onRemoveItems()}></Cart>
+            onRemoveItems={onRemoveItems}></Cart>
         )}
       </main>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Cart({ items = [] }) {
+export default function Cart({ items = [], showCart, onRemoveItems }) {
   return (
     <section className="cart">
       <div className="cart__container">
@@ -9,8 +9,8 @@ export default function Cart({ items = [] }) {
         {items.length > 0 ? (
           <div className="cart__wrap">
             <div className="cart__items">
-              {items.map((obj, index) => (
-                <div className="cart__item" key={index}>
+              {items.map((obj) => (
+                <div className="cart__item" key={obj.id}>
                   <img
                     src={obj.img}
                     alt="product"
@@ -21,7 +21,9 @@ export default function Cart({ items = [] }) {
                     <p className="cart__text-name">{obj.title}</p>
                     <span className="cart__text-price">{obj.price}</span>
                   </div>
-                  <button className="cart__item-btn">
+                  <button
+                    className="cart__item-btn"
+                    onClick={() => onRemoveItems(obj)}>
                     <svg
                       width="32"
                       height="32"
@@ -83,7 +85,7 @@ export default function Cart({ items = [] }) {
             <img src="/img/empty.jpg" alt="empty" width="120" height="120" />
             <h3>Корзина пустая</h3>
             <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
-            <button className="cart-empty__big-btn big-btn">
+            <button className="cart-empty__big-btn big-btn" onClick={showCart}>
               <svg
                 width="16"
                 height="14"
