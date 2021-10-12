@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Cart({ items = [] }) {
   return (
@@ -51,7 +52,7 @@ export default function Cart({ items = [] }) {
                 <span className="cart__dotted"></span>
                 <span className="cart__bottom-total-price">21 498 руб. </span>
               </div>
-              <button className="cart__bottom-btn big-btn">
+              <Link to="/buy" className="cart__bottom-btn big-btn">
                 Оформить заказ
                 <svg
                   width="16"
@@ -74,7 +75,7 @@ export default function Cart({ items = [] }) {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
+              </Link>
             </div>
           </div>
         ) : (

@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header({ showCart }) {
   return (
     <header className="header">
       <div className="header__container container">
-        <a href="#" className="header__logo">
+        <Link to="/" className="header__logo">
           <img src="/img/logo.png" alt="logo" width="40px" height="40px" />
           <p className="header__text">
             <span className="header__text-top">REACT SNEAKERS</span>
             <span className="header__text-down">Магазин лучших кроссовок</span>
           </p>
-        </a>
+        </Link>
 
         <div className="header__icons">
           <button onClick={showCart} className="header__icons-price">
