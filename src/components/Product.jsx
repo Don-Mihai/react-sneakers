@@ -1,15 +1,45 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-export default function Product({ title, price, img, onPlus, onRemove }) {
+export default function Product({
+  title,
+  price,
+  img,
+  id,
+  changeSelect,
+  addCartProduct,
+  onRemoveItems,
+}) {
   const [likeTogle, setLikeTogle] = React.useState(false);
-  const [selectTogle, setSelectTogle] = React.useState(false);
+  const curObj = useSelector(({ product }) =>
+    product.product.filter((obj) => obj.id === id),
+  );
+  const selectTogle = curObj[0].selectTogle;
+
+  // тут можно прописать еще один useEffect который будет следить за изменениями selectTogle
+  // и будет отправлять action который обновит данные,
+  // но это бессмысленно т.к. я возвращаюсь к прежней проблеме - этот стэйт контролирует редак
+  // а я просто слежу за его изменениями и вовремя обновляю данные
+
+  // но хотябы лучше понял работу redux и как добавлять продукты по отедльности а не масив целиком
+
+  // вижу 2 способа решения проблемы:
+  // 1) получить данные из редакса, а потом передать их в useState, по сути так редакс будет контролировать useState
+  // но не забыть еще решить как передать по умолчанию значение selectTogle
+  // 2) нужно как то создать условие: если id который удаляем равен id из items то меням стэйт в items.id
+  // но проблема в том что не знаю как обратиться к стэйту по конкретному id
+
+  // решить проблемму первым способом
 
   const setDisplay = () => {
     setLikeTogle(!likeTogle);
   };
+
   const setSelect = () => {
-    setSelectTogle(!selectTogle);
-    !selectTogle ? onPlus() : onRemove();
+    changeSelect();
+    console.log(selectTogle);
+    addCartProduct();
+    selectTogle ? addCartProduct() : onRemoveItems();
   };
 
   return (

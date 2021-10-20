@@ -2,28 +2,42 @@ import React from 'react';
 import Header from '../components/Header';
 import Product from '../components/Product';
 import Cart from '../components/Cart';
+import { fetchProduct, onChangeSelect } from '../redux/actions/product';
+import { setCartProduct, removeItems } from '../redux/actions/cart';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function Home({
-  cartItems,
-  setCartItems,
-  inputValue,
-  setInputValue,
-  items,
-}) {
+// чтобы решить проблему правильного добавления и удаления товаров необходимо
+// добавить редакс -> создать объект в которым буду передавать все данные и стэйт ->
+// этот объект передавать в хранилище
+
+// подумать по поводу того оставить ли продукт как есть или его тоже получать из стэйта сразу со значениями setSelect
+
+// всё таки сделать стэйт зависимым от редакса, так я смогу синхронизировать значения из разных мест
+export default function Home({ inputValue, setInputValue }) {
   const [togle, setTogle] = React.useState(false);
+
+  const items = useSelector(({ product }) => product.product);
+
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchProduct());
+  }, []);
 
   const showCart = () => {
     setTogle(!togle);
   };
 
-  const onAddItems = (obj) => {
-    setCartItems((prev) => [...prev, obj]);
-  };
-  const onRemoveItems = (obj) => {
-    const newItems = cartItems.filter((item) => item.id !== obj.id);
-    setCartItems(newItems);
+  const changeSelect = (object) => {
+    dispatch(onChangeSelect(object));
   };
 
+  const addCartProduct = (obj) => {
+    dispatch(setCartProduct(obj));
+  };
+
+  const onRemoveItems = (obj) => {
+    dispatch(removeItems(obj));
+  };
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -78,21 +92,18 @@ export default function Home({
                 .map((obj, index) => (
                   <Product
                     key={index}
-                    onPlus={() => onAddItems(obj)}
-                    onRemove={() => onRemoveItems(obj)}
+                    id={obj.id}
                     title={obj.title}
                     price={obj.price}
-                    img={obj.img}></Product>
+                    img={obj.img}
+                    changeSelect={() => changeSelect(obj)}
+                    addCartProduct={() => addCartProduct(obj)}
+                    onRemoveItems={() => onRemoveItems(obj)}></Product>
                 ))}
             </div>
           </div>
         </section>
-        {togle && (
-          <Cart
-            showCart={showCart}
-            items={cartItems}
-            onRemoveItems={onRemoveItems}></Cart>
-        )}
+        {togle && <Cart showCart={showCart}></Cart>}
       </main>
     </div>
   );

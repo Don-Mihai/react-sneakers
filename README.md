@@ -1,1 +1,1 @@
-# ReactJS + BEM + axios + router
+# ReactJS + BEM + axios + router + redux + redux-thunk

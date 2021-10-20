@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-export default function Cart({ items = [], showCart, onRemoveItems }) {
+export default function Cart({ showCart, onRemoveItems }) {
+  const items = useSelector(({ cart }) => cart.cartProduct);
+  // if (cartItem.id === items.id) {
+  // 	setSelect(!select)
+  // }
+  // где cartItem беру отсюда а items беру из списка всех продуктов
   return (
     <section className="cart">
       <div className="cart__container">
