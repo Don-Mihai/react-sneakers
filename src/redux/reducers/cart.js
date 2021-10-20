@@ -11,10 +11,20 @@ const cartProduct = (state = initialState, action) => {
       };
 
     case 'REMOVE_CART_PRODUCT':
-      const newItems = {
-        ...state.cartProduct,
-      };
-      delete newItems[action.payload];
+      let newItems = [...state.cartProduct];
+      console.log(newItems, 'state');
+      console.log(action.payload, 'acion payload');
+      newItems.forEach((value, key) => {
+        console.log(action.payload.id, 'value');
+        if (value.id === action.payload.id) {
+          if (key === 0) {
+            newItems = [];
+          } else {
+            newItems.splice(key, key);
+          }
+        }
+      });
+      console.log(action.payload, 'state deleted');
       return {
         ...state,
         cartProduct: newItems,

@@ -38,8 +38,7 @@ export default function Product({
   const setSelect = () => {
     changeSelect();
     console.log(selectTogle);
-    addCartProduct();
-    selectTogle ? addCartProduct() : onRemoveItems();
+    !selectTogle ? addCartProduct() : onRemoveItems();
   };
 
   return (
