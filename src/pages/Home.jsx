@@ -6,13 +6,7 @@ import { fetchProduct, onChangeSelect } from '../redux/actions/product';
 import { setCartProduct, removeItems } from '../redux/actions/cart';
 import { useDispatch, useSelector } from 'react-redux';
 
-// чтобы решить проблему правильного добавления и удаления товаров необходимо
-// добавить редакс -> создать объект в которым буду передавать все данные и стэйт ->
-// этот объект передавать в хранилище
-
-// подумать по поводу того оставить ли продукт как есть или его тоже получать из стэйта сразу со значениями setSelect
-
-// всё таки сделать стэйт зависимым от редакса, так я смогу синхронизировать значения из разных мест
+// теперь осталось сделать удаление товара из cart
 export default function Home({ inputValue, setInputValue }) {
   const [togle, setTogle] = React.useState(false);
 
@@ -103,7 +97,12 @@ export default function Home({ inputValue, setInputValue }) {
             </div>
           </div>
         </section>
-        {togle && <Cart showCart={showCart}></Cart>}
+        {togle && (
+          <Cart
+            showCart={showCart}
+            onRemoveItems={onRemoveItems}
+            changeSelect={changeSelect}></Cart>
+        )}
       </main>
     </div>
   );

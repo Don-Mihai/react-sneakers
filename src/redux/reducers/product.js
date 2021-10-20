@@ -2,7 +2,7 @@ const initialState = {
   product: [],
 };
 
-let addedStateProduct = [];
+let addedStateProduct = []; // убрать эту хуйню и написать нормально через state
 
 const product = (state = initialState, action) => {
   switch (action.type) {

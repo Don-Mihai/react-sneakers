@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-export default function Cart({ showCart, onRemoveItems }) {
+export default function Cart({ showCart, onRemoveItems, changeSelect }) {
   const items = useSelector(({ cart }) => cart.cartProduct);
-  // if (cartItem.id === items.id) {
-  // 	setSelect(!select)
-  // }
-  // где cartItem беру отсюда а items беру из списка всех продуктов
+
+  const removeItem = (obj) => {
+    changeSelect(obj);
+    onRemoveItems(obj);
+  };
   return (
     <section className="cart">
       <div className="cart__container">
@@ -29,7 +30,7 @@ export default function Cart({ showCart, onRemoveItems }) {
                   </div>
                   <button
                     className="cart__item-btn"
-                    onClick={() => onRemoveItems(obj)}>
+                    onClick={() => removeItem(obj)}>
                     <svg
                       width="32"
                       height="32"
