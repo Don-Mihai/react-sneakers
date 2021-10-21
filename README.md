@@ -1,3 +1,4 @@
 # ReactJS + BEM + axios + router + redux + redux-thunk
 
-on development stage
+https://sneakerss.herokuapp.com/
+on development stage...
