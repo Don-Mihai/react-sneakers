@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Product from '../components/Product';
 import Cart from '../components/Cart';
+import MyLoader from '../components/CartProdSkeleton';
 import { fetchProduct, onChangeSelect } from '../redux/actions/product';
 import { setCartProduct, removeItems } from '../redux/actions/cart';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +12,7 @@ export default function Home({ inputValue, setInputValue }) {
   const [togle, setTogle] = React.useState(false);
 
   const items = useSelector(({ product }) => product.product);
+  const isLoaded = useSelector(({ product }) => product.isLoaded);
 
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -79,21 +81,27 @@ export default function Home({ inputValue, setInputValue }) {
               </div>
             </div>
             <div className="all__products">
-              {items
-                .filter((object) =>
-                  object.title.toLowerCase().includes(inputValue.toLowerCase()),
-                )
-                .map((obj, index) => (
-                  <Product
-                    key={index}
-                    id={obj.id}
-                    title={obj.title}
-                    price={obj.price}
-                    img={obj.img}
-                    changeSelect={() => changeSelect(obj)}
-                    addCartProduct={() => addCartProduct(obj)}
-                    onRemoveItems={() => onRemoveItems(obj)}></Product>
-                ))}
+              {isLoaded
+                ? items
+                    .filter((object) =>
+                      object.title
+                        .toLowerCase()
+                        .includes(inputValue.toLowerCase()),
+                    )
+                    .map((obj, index) => (
+                      <Product
+                        key={index}
+                        id={obj.id}
+                        title={obj.title}
+                        price={obj.price}
+                        img={obj.img}
+                        changeSelect={() => changeSelect(obj)}
+                        addCartProduct={() => addCartProduct(obj)}
+                        onRemoveItems={() => onRemoveItems(obj)}></Product>
+                    ))
+                : Array(4)
+                    .fill(0)
+                    .map((_, index) => <MyLoader key={index}></MyLoader>)}
             </div>
           </div>
         </section>

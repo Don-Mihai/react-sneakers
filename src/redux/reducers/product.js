@@ -1,5 +1,6 @@
 const initialState = {
   product: [],
+  isLoaded: false,
 };
 
 let addedStateProduct = []; // убрать эту хуйню и написать нормально через state
@@ -14,6 +15,7 @@ const product = (state = initialState, action) => {
       return {
         ...state,
         product: addedStateProduct,
+        isLoaded: true,
       };
     case 'CHANGE_SELECT':
       const newObj = action.payload;

@@ -1,8 +1,9 @@
 import React from 'react';
-import ContentLoader from 'react-content-loader';
+import ContentLoader from 'react-loading-skeleton';
 
 const MyLoader = (props) => (
   <ContentLoader
+    className="product"
     speed={2}
     width={210}
     height={260}
