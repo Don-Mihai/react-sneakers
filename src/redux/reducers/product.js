@@ -3,12 +3,10 @@ const initialState = {
   isLoaded: false,
 };
 
-let addedStateProduct = []; // убрать эту хуйню и написать нормально через state
-
 const product = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_PRODUCT':
-      addedStateProduct = action.payload.map(function (obj) {
+      const addedStateProduct = action.payload.map(function (obj) {
         obj.selectTogle = false;
         return obj;
       });
