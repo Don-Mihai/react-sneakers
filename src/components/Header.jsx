@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Header({ showCart }) {
+  const totalPrice = useSelector(({ cart }) => cart.cartPrice);
   return (
     <header className="header">
       <div className="header__container container">
@@ -43,7 +45,7 @@ export default function Header({ showCart }) {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>1205 руб.</span>
+            <span>{totalPrice} руб.</span>
           </button>
           <svg
             className="like"
