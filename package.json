@@ -2,7 +2,7 @@
   "name": "snikers-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://don-mihai.github.io/react-sneakers/",
+  
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
