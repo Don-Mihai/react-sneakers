@@ -5,6 +5,7 @@ const initialState = {
 
 const getTotalPrice = (arr) =>
   arr.reduce((sum, obj) => +obj.price.replace(/\D/g, '') + sum, 0);
+
 const cartProduct = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_CART_PRODUCT':
@@ -16,7 +17,7 @@ const cartProduct = (state = initialState, action) => {
       };
 
     case 'REMOVE_CART_PRODUCT':
-      let newItems = [...state.cartProduct];
+      const newItems = [...state.cartProduct];
 
       newItems.forEach((value, key) => {
         if (value.id === action.payload.id) {

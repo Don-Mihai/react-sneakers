@@ -2,15 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-export default function Cart({ showCart, onRemoveItems, changeSelect }) {
+export default function Cart({ showCart, onRemoveItems, changeSelect, togle }) {
   const items = useSelector(({ cart }) => cart.cartProduct);
+  const totalPrice = useSelector(({ cart }) => cart.cartPrice);
 
   const removeItem = (obj) => {
     changeSelect(obj);
     onRemoveItems(obj);
   };
   return (
-    <section className="cart">
+    <section className={`cart ${togle && 'cart__active'}`}>
       <div className="cart__container">
         <h3 className="cart__title">Корзина</h3>
         {items.length > 0 ? (
@@ -59,7 +60,9 @@ export default function Cart({ showCart, onRemoveItems, changeSelect }) {
               <div className="cart__bottom-cost">
                 <span>Итого: </span>
                 <span className="cart__dotted"></span>
-                <span className="cart__bottom-total-price">21 498 руб. </span>
+                <span className="cart__bottom-total-price">
+                  {totalPrice} руб.
+                </span>
               </div>
               <Link to="/buy" className="cart__bottom-btn big-btn">
                 Оформить заказ

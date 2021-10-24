@@ -107,6 +107,7 @@ export default function Home({ inputValue, setInputValue }) {
         </section>
         {togle && (
           <Cart
+            togle={togle}
             showCart={showCart}
             onRemoveItems={onRemoveItems}
             changeSelect={changeSelect}></Cart>

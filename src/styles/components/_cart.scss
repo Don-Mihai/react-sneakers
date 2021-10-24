@@ -1,8 +1,18 @@
+@keyframes show {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 .cart {
   position: fixed;
   top: 0;
   right: 0;
   z-index: 20;
+  animation: show 0.3s;
+
   &__wrap {
     display: flex;
     flex-direction: column;

@@ -7,6 +7,7 @@ export const fetchProduct = () => (dispatch) => {
       .then((res) => dispatch(setProduct(res.data)));
   } catch (error) {
     alert('Не удалось получить данные с сервера');
+    console.log(error);
   }
 };
 
